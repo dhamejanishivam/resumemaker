@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --poppins: "Poppins", sans-serif;
+            --primary-bg: skyblue;
+            --header-bg: rgb(253, 253, 253);
+            --primary-color: rgb(47, 181, 235);
+            --accent-color: rgb(74, 74, 245);
+            --button-hover: rgba(74, 74, 245, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            font-family: var(--poppins);
+        }
+
+        header .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 20px;
+            color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .header p {
+            color: rgb(200, 200, 233);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .smallNav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .smallNav .leftNav img {
+            width: 50px;
+            border-radius: 50%;
+            mix-blend-mode: color-burn;
+        }
+
+        .smallNav .rightNav ul {
+            list-style: none;
+        }
+
+        .smallNav .rightNav ul a {
+            text-decoration: none;
+            color: rgb(53, 115, 146);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .bodySection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .leftbody {
+            width: 50%;
+            padding-right: 20px;
+        }
+
+        .leftbody h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .leftbody p {
+            font-size: 1rem;
+            color: rgb(53, 115, 146);
+            margin-bottom: 20px;
+        }
+
+        .leftbody button {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .leftbody button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .rightBody {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightBody img {
+            width: 400px;
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* mix-blend-mode:color-burn; */
+        }
+
+        .pricingSection {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 50px 0;
+        }
+        
+        .pricingSection > div {
+            width: 300px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            /* text-align: left; */
+        }
+
+        .pricingSection > div:hover {
+            transform: scale(1.05);
+            background-color: var(--button-hover);
+        }
+
+        .pricingSection h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .pricingSection p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .pricingSection button {
+            padding: 10px 20px;
+            background-color: white;
+            color: var(--accent-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .pricingSection button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bodypriceSep {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <h1>Resume Builder</h1>
+            <p>Get hired fast with our awesome resume</p>
+        </div>
+    </header>
+
+    <section class="smallNav">
+        <div class="leftNav">
+            <img src="files/a.jpg" alt="Logo">
+        </div>
+
+        <div class="rightNav">
+            <ul>
+                <li><a href="#pricing">Contact Us</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <main>
+        <section class="bodySection">
+            <div class="leftbody">
+                <h2>Build Your Dream Resume</h2>
+                <p>Create a professional resume effortlessly with our easy-to-use builder. Impress employers and land your dream job in no time!</p>
+                <button onclick="document.querySelector('.pricingSection').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+            </div>
+
+            <div class="rightBody">
+                <img src="files/resume.jpg" alt="Sample Resume">
+            </div>
+        </section>
+
+        <hr class="bodypriceSep">
+
+        <section class="pricingSection" id="pricing">
+            <div class="basicResume">
+                <h3>Basic Plan</h3>
+                <hr>
+                <p>A simple and effective resume design to kickstart your career.</p>
+                <button onclick="maker()">Choose This Plan</button>
+            </div>
+
+            <div class="advanceResume">
+                <h3>Advance Plan</h3>
+                <hr>
+                <p>Stand out with a premium design and additional features.</p>
+                <button onclick="maker()">Choose This Plan</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function maker() {
+            window.location.href = "maker.html";
+        }
+    </script>
+
+</body>
+
+</html>
