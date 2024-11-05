@@ -1,0 +1,94 @@
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* Adjust header for smaller screens */
+    header .header h1 {
+        font-size: 1.8rem;
+    }
+
+    header .header p {
+        font-size: 1rem;
+    }
+
+    .smallNav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .smallNav img {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    .smallNav a {
+        font-size: 1rem;
+    }
+
+    /* Main section adjustments */
+    .main1 {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .leftbody h2 {
+        font-size: 1.8rem;
+    }
+
+    .leftbody p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .leftbody button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .rightBody img {
+        display: none;
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    /* Template section */
+    .main2 h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .alltemplates {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .template-card {
+        width: 80%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+
+    .main2 .template-card img {
+        max-width: 300px;
+    }
+
+    /* Submit button styling */
+    .submitbtn button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        width: 80%;
+        margin: auto;
+    }
+
+    /* Footer styling */
+    .footer {
+        padding: 20px;
+    }
+
+    .footer h3 {
+        font-size: 1rem;
+    }
+
+    .footer a {
+        font-size: 0.9rem;
+    }
+}

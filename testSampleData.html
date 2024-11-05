@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Resume</title>
+</head>
+<body>
+    <button id="submitButton">Submit Resume</button>
+    <div id="responseMessage"></div>
+
+    <script>
+        const data23 = {
+            name: "Mohit",
+            email: "dhamejanishivam@gmail.com",
+            phone: "+91 9644971120",
+            location: "Raipur",
+            objective:
+              "I want to be billionaire " +
+              "Seeking opportunities to apply my expertise in building innovative solutions while continuously " +
+              "learning and contributing to dynasdasdsadsdasdasdasdamic projects.",
+            work_experience: [
+              {
+                title: "God • Internship",
+                company: "Thought Applied Creation, Raipur",
+                duration: "Jul 2024 - Aug 2024",
+                description:
+                  "Built a ABasaaaaaaaaaaaaaaaaaaaaaaC website linked to a database using React, HTML, CSS, JavaScript, PHP, " +
+                  "and MySQL.",
+              },
+            ],
+            education: [
+              {
+                degree: "B1111111.Tech, Compu11ter Science & Engineering",
+                year: "2022 - 20261111",
+                institution:
+                  "Shri Shankaracharya Institute Of Professional Management And Technoaaaaaaaaaaaaaaaaaaaalogy",
+              },
+              {
+                degree: "Senior Secondary (XII), CBSE",
+                year: "2022",
+                institution: "Krishna Public School",
+              },
+              {
+                degree: "Secondasdasdasary (X), CBSE",
+                year: "2020",
+                institution: "Kriasdasdshna Public School",
+              },
+            ],
+            projects: [
+              "https://shivamdhamejani.in",
+              "https://github.com/dhamejanishivam",
+              "https://github.com/dhamejanishivam/Heart-Disease-Predictor",
+              "https://github.com/dhamejanishivam/pendrive-virus",
+            ],
+            skills: [
+              "JavaScript",
+              "Pythonsdadas",
+              "Photography",
+              "HTML&CSS",
+              "C Programming",
+              "C++ Programming",
+              "Linux",
+              "MS-Excel",
+              "Digital Marketing",
+              "SQL",
+              "Data Structures",
+            ],
+            additional_details: [
+              "Green Olympiad",
+              "2nd position in Spell Bee Competition",
+              "1st position in Best Out of Waste competition",
+            ],
+        };
+
+        const backendUrl = "https://cdc5-45-124-144-227.ngrok-free.app/api/resume";
+
+        async function submitResume(data) {
+            try {
+                const response = await fetch(backendUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const responseMessage = document.getElementById('responseMessage');
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+
+                const responseData = await response.json();
+                responseMessage.textContent = 'Success: ' + JSON.stringify(responseData);
+            } catch (error) {
+                const responseMessage = document.getElementById('responseMessage');
+                responseMessage.textContent = 'Error: ' + error.message;
+            }
+        }
+
+        // Event listener for the button
+        document.getElementById('submitButton').addEventListener('click', () => {
+            submitResume(data23);
+        });
+    </script>
+</body>
+</html>

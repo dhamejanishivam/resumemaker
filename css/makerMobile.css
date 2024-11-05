@@ -1,0 +1,67 @@
+/* Responsive Styles for Mobile Screens */
+@media screen and (max-width: 768px) {
+    body {
+        /* height: auto; */
+        min-height: auto; 
+    }
+
+    .mainbox{
+        /* background-color: blue; */
+        width: 100%;
+    }
+    input{
+        width: 100% !important;
+    }
+
+    .form-container {
+        min-width: 90vw !important; /* Adjust width for better fitting */
+        padding: 20px; /* Reduce padding for smaller screens */
+        margin-top: 50px; /* Adjust margin top */
+    }
+
+    header .header {
+        padding: 15px; /* Reduce header padding */
+    }
+
+    .header h1 {
+        font-size: 2rem; /* Reduce header font size */
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem; /* Reduce form header font size */
+    }
+
+    .form-step-indicator {
+        font-size: 0.8rem; /* Reduce font size for step indicator */
+    }
+
+    .form-container label {
+        font-size: 0.9rem; /* Adjust label font size */
+    }
+
+    .form-container input,
+    .form-container textarea {
+        font-size: 0.9rem; /* Adjust input and textarea font size */
+        width: 100% !important;
+    }
+
+    .form-navigation button {
+        padding: 8px 15px; /* Adjust button padding */
+        font-size: 0.9rem; /* Adjust button font size */
+    }
+
+    #formimg {
+        width: 200px; /* Reduce image size for smaller screens */
+        height: 200px; /* Maintain aspect ratio */
+    }
+
+    .mainbox {
+        width: 100% !important;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+    }
+
+    input,textarea{
+        width: 100vw;
+    }
+}
