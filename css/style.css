@@ -1,0 +1,228 @@
+:root {
+    --poppins: "Poppins", sans-serif;
+    --primary-bg: linear-gradient(135deg, #6dd5ed, #2193b0);
+    --header-bg: #ffffff;
+    --primary-color: #2F69E0;
+    --accent-color: #4a4af5;
+    --button-hover: #3743c0;
+    --text-color: #333;
+    --light-text: #666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--primary-bg);
+    font-family: var(--poppins);
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+header {
+    background: var(--header-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+header .header {
+    color: var(--primary-color);
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+.smallNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.smallNav img {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.smallNav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.main1 {
+    min-height: 68vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    background: var(--primary-bg);
+    color: #ffffff;
+}
+
+.main1 img{
+    width: 20px;
+}
+
+.bodySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftbody h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.leftbody p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.leftbody button {
+    padding: 15px 30px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.leftbody button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+}
+
+.rightBody img {
+    width: 400px; /* or use max-width: 100% */
+    height: auto;
+    /* object-fit: cover; */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+
+.main2 {
+    padding: 60px 20px;
+    color: var(--text-color);
+    text-align: center;
+    background: #ffffff;
+    border-top: 5px solid var(--primary-color);
+}
+
+.main2 h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.alltemplates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* .template-card {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    font-weight: 500;
+} */
+
+.template-card{
+    min-width: max-content;
+    height: auto;
+    padding: 1.5px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    margin: auto 40px;
+}
+
+.main2 .template-card img{
+    max-width: 450px;
+}
+
+.template-card.selected {
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.submitbtn button {
+    padding: 12px 25px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.submitbtn button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+}
+
+@media (min-width: 768px) {
+    .bodySection {
+        flex-direction: row;
+        padding: 70px;
+        text-align: left;
+    }
+
+    .leftbody {
+        width: 50%;
+        padding-right: 20px;
+    }
+
+    .rightBody {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

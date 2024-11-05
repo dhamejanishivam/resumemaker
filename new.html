@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Maker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --poppins: "Poppins", sans-serif;
+            --primary-bg: skyblue;
+            --header-bg: rgb(253, 253, 253);
+            --primary-color: rgb(47, 181, 235);
+            --accent-color: rgb(74, 74, 245);
+            --button-hover: rgba(74, 74, 245, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth !important;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            font-family: var(--poppins);
+        }
+
+        header .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 20px;
+            color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .form-container {
+            width: 60%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .form-container label {
+            font-weight: 500;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .form-container textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .output-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        
+
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <h1>Resume Builder</h1>
+            <p>Fill the form to generate your resume data</p>
+        </div>
+    </header>
+
+
+    <script>
+        document.getElementById('resumeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                location: document.getElementById('location').value,
+                objective: document.getElementById('objective').value,
+                work_experience: parseWorkExperience(document.getElementById('workExperience').value),
+                education: parseEducation(document.getElementById('education').value),
+                projects: document.getElementById('projects').value.split(',').map(p => p.trim()),
+                skills: document.getElementById('skills').value.split(',').map(s => s.trim()),
+                additional_details: document.getElementById('additionalDetails').value.split(',').map(a => a.trim())
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/resume', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'resume.pdf';
+                    a.click();
+                    alert('Resume generated successfully!');
+                } else {
+                    alert('Failed to generate resume!');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred!');
+            }
+        });
+
+        function parseWorkExperience(input) {
+            return input.split('\n').map(exp => {
+                const [title, company, duration, description] = exp.split(',').map(e => e.trim());
+                return { title, company, duration, description };
+            });
+        }
+
+        function parseEducation(input) {
+            return input.split('\n').map(edu => {
+                const [degree, year, institution] = edu.split(',').map(e => e.trim());
+                return { degree, year, institution };
+            });
+        }
+    </script>
+
+</body>
+
+</html>

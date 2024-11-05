@@ -1,0 +1,158 @@
+:root {
+    --poppins: "Poppins", sans-serif;
+    --primary-bg: #f0f4f8;
+    --header-bg: #ffffff;
+    --primary-color: #2f9ce3;
+    --accent-color: #4a4af5;
+    --button-hover: rgba(74, 74, 245, 0.8);
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-bg);
+    font-family: var(--poppins);
+    min-height: 120vh;
+}
+
+header .header {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 20px;
+    color: var(--primary-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 70vw;
+    /* background-color: white; */
+    /* background-color: var(--accent-color); */
+    background-color: rgb(183, 211, 252);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-top: 100px;
+}
+
+.form-header h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.form-step-indicator {
+    text-align: center;
+    color: gray;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-container label {
+    font-weight: 800;
+    margin-top: 15px;
+    display: block;
+    color: #333;
+    text-align: left;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+
+    color: rgb(88, 88, 88);
+    border:  2.5px solid #d1d9e6;
+    background-color: rgb(214, 229, 252);
+    font-size: 1rem;
+    font-weight: bold;
+    
+    border-radius: 5px;
+    border-radius: 15px;
+    caret-color: rgb(88, 88, 88); 
+    
+}
+
+input:focus, textarea:focus{
+    caret-shape: underscore !important;
+    outline: none;
+    border: 2.5px solid #0642a1;
+}
+
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-navigation button {
+    padding: 10px 20px;
+    margin: auto;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resumeForm{
+    /* background-color: red; */
+    width: 50%;
+}
+
+.form-navigation button:hover {
+    background-color: var(--button-hover);
+}
+
+
+
+#prevBtn {
+    background-color: #aaa;
+}
+
+#prevBtn:hover {
+    background-color: #ccc;
+}
+
+
+#formimg{
+    width: 300px;
+    height: 300px;
+    /* height: auto; */
+    mix-blend-mode: color-burn;
+}
+
+.mainbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
