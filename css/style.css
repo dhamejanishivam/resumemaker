@@ -226,3 +226,18 @@ header .header {
         align-items: center;
     }
 }
+
+.footer h3{
+    text-align: center;
+    padding: 10px 0px;
+    color: white;
+}
+
+.footer{
+    text-align: center;
+    padding: 10px ;
+}
+
+.footer a{
+    color: rgb(48, 71, 172);
+}

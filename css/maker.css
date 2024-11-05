@@ -6,6 +6,7 @@
     --accent-color: #4a4af5;
     --button-hover: rgba(74, 74, 245, 0.8);
     --border-radius: 10px;
+    --footerbg:linear-gradient(135deg, #6dd5ed, #2193b0);
 }
 
 * {
@@ -155,4 +156,25 @@ input:focus, textarea:focus{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+
+.footer h3{
+    text-align: center;
+    padding: 5px 0px;
+    color: white;
+}
+
+.footer{
+    /* background-color: var(--footerbg); */
+    background: var(--footerbg);
+    color: white;
+    margin-top: 50px;
+    text-align: center;
+    padding: 10px ;
+}
+
+.footer a{
+    padding: 0;
+    color: var(--accent-color);
 }
