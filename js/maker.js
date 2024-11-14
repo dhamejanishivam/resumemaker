@@ -1,6 +1,6 @@
 // const backendUrl = "https://3a8a1ed3-4573-4f0a-8019-45d567abea8b-00-xpzkyrngg4dp.pike.replit.dev/api/resume";
-// const backendUrl = "http://127.0.0.1:5000/api/resume";
-const backendUrl = "https://958d-45-124-144-227.ngrok-free.app/api/resume";
+const backendUrl = "http://127.0.0.1:5000/api/resume";
+const backendUrl = "https://4f83-45-124-144-227.ngrok-free.app/api/resume";
 
 
 var selectedTemplate = localStorage.getItem("selectedTemplate");
@@ -49,10 +49,10 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
 //   window.location.href=backendUrl;
 
   // Fetch values from input fields
-  const degreeName = document.getElementById("degree-name").value;
-  const startYear = document.getElementById("start-year").value;
-  const endYear = document.getElementById("end-year").value;
-  const instituteName = document.getElementById("institute-name").value;
+  // const degreeName = document.getElementById("degree-name").value;
+  // const startYear = document.getElementById("start-year").value;
+  // const endYear = document.getElementById("end-year").value;
+  // const instituteName = document.getElementById("institute-name").value;
   const startDate = document.getElementById("start-date").value;
   const endDate = document.getElementById("end-date").value;
 
@@ -76,14 +76,9 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
     ],
 
     // Education
-    education: [
-      {
-        degree: `${degreeName}, ${startYear} - ${endYear}`,
-        year: `${startYear} - ${endYear}`,
-        institution: instituteName,
-      },
-      // Add more education entries if needed
-    ],
+    // let eduArray = document.querySelectorAll(".form-group education-item");
+    // for
+    education: getEducationData(),
 
     // Projects
     projects: document
@@ -103,6 +98,7 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
       .value.split(",")
       .map((detail) => detail.trim()),
   };
+
 
   const data23 = {
     name: "NooName",
@@ -173,26 +169,30 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-
+  
     if (response.ok) {
-      // Try to download the file
+      // Handle successful response and trigger the file download
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "resume.pdf";
+      a.download = "resume.pdf";  // You can set the filename as needed
       a.click();
-      alert("Resume generated successfully!");
+  
+      // Clean up the URL object after the download
+      window.URL.revokeObjectURL(url);
+      alert("Resume generated and downloading...");
     } else {
-      // Log detailed error information
       const errorText = await response.text();
       console.error("Error response text:", errorText);
       alert("Failed to generate resume. Server responded with an error.");
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("An error occurred!");
+    alert("An error occurred while generating the resume!");
   }
+  
+  
 });
 
 function parseWorkExperience(input) {
@@ -209,4 +209,59 @@ function parseEducation(input) {
     const [degree, year, institution] = edu.split(",").map((e) => e.trim());
     return { degree, year, institution };
   });
+}
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  showStep(currentStep);
+
+  // Handle the adding of additional education fields
+  let a = document.querySelectorAll(".add-degree-btn");
+  a.forEach(element => {
+    element.addEventListener('click', function(event){
+      const educationContainer = document.querySelector("#step2");
+
+    // Clone the first set of fields and append to the container
+    const newEducationItem = educationContainer.children[1].cloneNode(true);
+    // const newEducationItem = educationContainer.firstChild.cloneNode(true);
+
+    // Clear the values in the cloned input fields
+    const inputs = newEducationItem.querySelectorAll("input");
+    inputs.forEach(input => input.value = "");
+
+    // Append the cloned fields
+    educationContainer.appendChild(newEducationItem);
+    })
+  });
+});
+
+
+
+
+function getEducationData() {
+  const educationContainers = document.querySelectorAll(".education-container");
+  const educationData = [];
+
+  educationContainers.forEach(container => {
+    const degree = container.querySelector(".degree-name").value;
+    const startYear = container.querySelector(".start-year").value;
+    const endYear = container.querySelector(".end-year").value || "Present";
+    const institution = container.querySelector(".institute-name").value;
+
+    educationData.push({
+      degree: degree,
+      year: `${startYear} - ${endYear}`,
+      institution: institution
+    });
+  });
+
+  console.log(educationData);
+  return educationData;
 }

@@ -55,26 +55,31 @@
                 <div class="form-step" id="step2">
                     <label for="degree-name"><strong>Education</strong></label>
                     
-                    <div class="form-group">
-                        <label for="degree-name">Name of Degree</label>
-                        <input type="text" id="degree-name" placeholder="e.g., B.Tech">
+                    <div class="education-container">
+                        <div class="form-group education-item">
+                            <label for="degree-name">Name of Degree</label>
+                            <input type="text" class="degree-name"  id="degree-name"  placeholder="e.g., B.Tech">
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="start-year">Start Year</label>
+                            <input type="number" class="start-year"  id="start-year"  placeholder="e.g., 2022">
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="end-year">End Year</label>
+                            <input type="text" class="end-year" placeholder="e.g., 2026 or 'Present' if currently studying">
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="institute-name">Name of Institution, Location</label>
+                            <input type="text" class="institute-name" placeholder="e.g., SSIPMT, Raipur">
+                        </div>
                     </div>
+                    <button type="button" id="addDegreeBtn" class="add-degree-btn">+ Add Another Degree</button>
                     
-                    <div class="form-group">
-                        <label for="start-year">Start Year</label>
-                        <input type="number" id="start-year" placeholder="e.g., 2022">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="end-year">End Year</label>
-                        <input type="text" id="end-year" placeholder="e.g., 2026 or 'Present' if currently studying">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="institute-name">Name of Institution,Location</label>
-                        <input type="text" id="institute-name" placeholder="e.g., SSIPMT,Raipur">
-                    </div>
                 </div>
+
                 
 
                 <!-- Step 3: Work Experience -->
@@ -138,6 +143,8 @@
             <img src="files/a.jpg" id="formimg" alt="">
         </div>
         </div>
+
+
     </main>
 
 

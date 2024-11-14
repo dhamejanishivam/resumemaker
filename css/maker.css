@@ -178,3 +178,29 @@ input:focus, textarea:focus{
     padding: 0;
     color: var(--accent-color);
 }
+
+
+
+.add-degree-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.add-degree-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-item {
+    margin-bottom: 15px;
+}

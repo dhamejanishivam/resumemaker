@@ -6,12 +6,16 @@
     <title>Submit Resume</title>
 </head>
 <body>
+  Hi
+  <br>
     <button id="submitButton">Submit Resume</button>
     <div id="responseMessage"></div>
 
     <script>
+      const backendUrl = "http://127.0.0.1:5000//api/resume";
+      
         const data23 = {
-            name: "Mohit",
+            name: "error is me",
             email: "dhamejanishivam@gmail.com",
             phone: "+91 9644971120",
             location: "Raipur",
@@ -73,30 +77,38 @@
             ],
         };
 
-        const backendUrl = "https://cdc5-45-124-144-227.ngrok-free.app/api/resume";
+        
 
         async function submitResume(data) {
-            try {
-                const response = await fetch(backendUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
+          try {
+  const response = await fetch(backendUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-                const responseMessage = document.getElementById('responseMessage');
+  if (response.ok) {
+    // Handle successful response and trigger the file download
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "resume.pdf";  // You can set the filename as needed
+    a.click();
 
-                if (!response.ok) {
-                    throw new Error(`Error: ${response.status} ${response.statusText}`);
-                }
+    // Clean up the URL object after the download
+    window.URL.revokeObjectURL(url);
+    alert("Resume generated and downloading...");
+  } else {
+    const errorText = await response.text();
+    console.error("Error response text:", errorText);
+    alert("Failed to generate resume. Server responded with an error.");
+  }
+} catch (error) {
+  console.error("Error:", error);
+  alert("An error occurred while generating the resume!");
+}
 
-                const responseData = await response.json();
-                responseMessage.textContent = 'Success: ' + JSON.stringify(responseData);
-            } catch (error) {
-                const responseMessage = document.getElementById('responseMessage');
-                responseMessage.textContent = 'Error: ' + error.message;
-            }
         }
 
         // Event listener for the button
