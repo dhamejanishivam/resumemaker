@@ -1,5 +1,5 @@
 // const backendUrl = "https://3a8a1ed3-4573-4f0a-8019-45d567abea8b-00-xpzkyrngg4dp.pike.replit.dev/api/resume";
-const backendUrl = "http://127.0.0.1:5000/api/resume";
+//const backendUrl = "http://127.0.0.1:5000/api/resume";
 const backendUrl = "https://4f83-45-124-144-227.ngrok-free.app/api/resume";
 
 
