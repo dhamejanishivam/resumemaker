@@ -109,6 +109,9 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
       .getElementById("additionalDetails")
       .value.split(",")
       .map((detail) => detail.trim()),
+
+    // Selected template design:
+    selectedTemplateId:selectedTemplate,
   };
 
 
