@@ -3,6 +3,7 @@
     body {
         /* height: auto; */
         min-height: auto; 
+        
     }
 
     .mainbox{
@@ -63,5 +64,9 @@
 
     input,textarea{
         width: 100vw;
+    }
+
+    #resumeForm{
+        width: 100%;
     }
 }

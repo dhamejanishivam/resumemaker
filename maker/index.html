@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Maker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    
+    <!-- Awesomplete CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css">
+
+    <link rel="stylesheet" href="../css/maker.css">
+    <link rel="stylesheet" href="../css/makerMobile.css">
+    
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <h1>Resume Builder</h1>
+            <p>Fill out each section to generate your resume </p>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Enter Your Details</h2>
+                <p class="form-step-indicator">Step <span id="currentStep">1</span> of 5</p>
+            </div>
+            
+            <div class="mainbox">
+
+                
+                <form id="resumeForm">
+                <!-- Step 1: Basic Information -->
+                <div class="form-step active" id="step1">
+                    <input type="number" value="" id="selectedTemplateId" hidden>
+
+                    <label for="name">Name</label>
+                    <input type="text" style="text-transform: capitalize;" id="name" name="name">
+
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" required>
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="location">Location</label>
+                    <input type="location" id="location" name="location" placeholder="Eg. Raipur">
+                </div>
+
+                <!-- Step 2: Study Experience -->
+                <div class="form-step" id="step2">
+                    <label for="degree-name"><strong>Education</strong></label>
+                    
+                    <div class="education-container">
+                        <div class="form-group education-item">
+                            <label for="degree-name">Name of Degree</label>
+                            <input type="text" class="degree-name"  id="degree-name"  placeholder="e.g., B.Tech">
+
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="start-year">Start Year</label>
+                            <input type="number" class="start-year"  id="start-year"  placeholder="e.g., 2022">
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="end-year">End Year</label>
+                            <input type="text" class="end-year" placeholder="e.g., 2026 or 'Present' if currently studying">
+                        </div>
+                        
+                        <div class="form-group education-item">
+                            <label for="institute-name">Name of Institution, Location</label>
+                            <input type="text" class="institute-name coolegeNameInput" id="nameofInstitution" placeholder="e.g., Shri Shankaracharya Institute Of Professional Management And Technology">
+                        </div>
+                    </div>
+                    <button type="button" id="addDegreeBtn" class="add-degree-btn">+ Add Another Degree</button>
+                    
+                </div>
+
+                
+
+                <!-- Step 3: Work Experience -->
+                <div class="form-step" id="step3">
+                    <label for="job-title">Work/Internship Experience</label>
+                    
+                    <div class="form-group">
+                        <label for="job-title">Internship Title</label>
+                        <input type="text" id="job-title" placeholder="e.g., Web Developer">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-name">Company/Instituion</label>
+                        <input type="text" id="company-name" placeholder="e.g., Google Summer Internships">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="text" id="start-date" placeholder="e.g., Jul 2024">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="end-date">End Date</label>
+                        <input type="text" id="end-date" placeholder="e.g., Aug 2024 or 'Present' if currently employed">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="job-description">Description</label>
+                        <textarea id="job-description" placeholder="e.g., Managed user's database"></textarea>
+                    </div>
+                </div>
+                
+
+                <!-- Step 4: Projects and Skills -->
+                <div class="form-step" id="step4">
+                    <label for="projects">Projects</label>
+                    <input type="text" id="projects"></input>
+
+                    <label for="projects">Web Projects / Project Urls (Enter URLs separated by commas)</label>
+                    <input type="text" id="projectsurl"></input>
+
+                    <label for="skills">Skills (Enter skills separated by commas)</label>
+                    <textarea id="skills"></textarea>
+                </div>
+
+                <!-- Step 5: Additional Details -->
+                <div class="form-step" id="step5">
+                    <label for="objective">Objective</label>
+                    <textarea id="objective" name="objective"></textarea>
+
+                    <label for="additionalDetails">Additional Details (Enter achievements separated by commas)</label>
+                    <textarea id="additionalDetails"></textarea>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" id="prevBtn" onclick="prevStep()">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextStep()">Next</button>
+                    <button type="submit" id="submitBtn" style="display: none;">Generate Resume</button>
+                </div>
+            </form>
+            <img src="../files/a.jpg" id="formimg" alt="">
+        </div>
+        </div>
+
+
+    </main>
+
+
+    <div class="alert-box" id="alert-box">
+        <div class="alert-text" id="alert-text"></div>
+        <button class="alert-button">Ok</button>
+    </div>
+
+
+    <footer>
+        <div class="footer">
+            <h3>&#169; Shivam Dhamejani</h3>
+            <p>Connect with me:</p>
+                <a href="https://github.com/dhamejanishivam" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/shivam-dhamejani-66b461245/" target="_blank">LinkedIn</a> |
+                <a href="mailto:dhamejanishivam@gmail.com" target="_blank">Email Me</a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
+    <script src="../js/maker.js"></script>
+    
+</body>
+
+</html>

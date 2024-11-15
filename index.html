@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,20 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/indexMobile.css">
+
+    <meta name="description"
+        content="Create professional resumes online with ease using our resume builder tool. Simple, quick, and free.">
+    <meta name="keywords"
+        content="resume builder, online resume maker, free resume builder, create resume online, professional resume tool, CV builder">
+    <meta name="author" content="Shivam Dhamejani">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Resume Maker - Build Your Professional Resume Online for free">
+    <meta property="og:description"
+        content="Create your perfect resume online with our simple and free resume builder tool. Get hired faster!">
+    <!-- <meta property="og:image" content="URL to an image representing your website (optional)"> -->
+    <!-- <meta property="og:url" content="https://yourdomain.com"> -->
 </head>
+
 <body>
 
     <header>
@@ -25,7 +39,8 @@
             <img src="files/a.jpg" alt="Logo">
         </div>
         <div class="rightNav">
-            <a href="#pricing">Contact Us</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dhamejanishivam@gmail.com&su=Resume Website&body=Hey, I just saw your Resume Builder website and I wanted to say that&cc=shivam9644971120@gmail.com"
+                target="_blank">Contact Us</a>
         </div>
     </section>
 
@@ -33,11 +48,12 @@
         <section class="bodySection">
             <div class="leftbody">
                 <h2>Build Your Dream Resume</h2>
-                <p>Create a professional resume effortlessly with our easy-to-use builder <strong>for free</strong> . Impress employers and land your dream job in no time!</p>
+                <p>Create a professional resume effortlessly with our easy-to-use builder <strong>for free</strong> .
+                    Impress employers and land your dream job in no time!</p>
                 <button onclick="maker()">Get Started</button>
             </div>
             <div class="rightBody">
-                <img  srcset="files/resume.jpg 1x, files/resume@2x.jpg 2x"  alt="Sample Resume">
+                <img srcset="files/resume.jpg 1x, files/resume@2x.jpg 2x" alt="Sample Resume">
             </div>
         </section>
     </main>
@@ -48,12 +64,14 @@
         <h2>Choose a Template</h2>
         <div class="alltemplates">
             <div class="template-card" onclick="selectTemplate(1)"> <img src="files/resume.webp" alt=""> </div>
-            <div class="template-card" onclick="selectTemplate(2)"> <img src="files/c.jpg" alt=""> </div>
-            <div class="template-card" onclick="selectTemplate(3)"> <img src="files/d.webp" alt=""> </div>
+            <div class="template-card" onclick="selectTemplate(2)"> <img src="files/resumeTemplate2.webp" alt=""> </div>
+            <!-- <div class="template-card" onclick="selectTemplate(2)"> <img src="files/c.jpg" alt=""> </div> -->
+            <!-- <div class="template-card" onclick="selectTemplate(3)"> <img src="files/d.webp" alt=""> </div> -->
+            <span id="moreTemplates">More templates coming soon...</span>
         </div>
         <div class="submitbtn">
             <button onclick="nextPage()">Start Making Resume</button>
-        </div> 
+        </div>
     </main>
 
 
@@ -61,15 +79,17 @@
         <div class="footer">
             <h3>&#169; Shivam Dhamejani</h3>
             <p>Connect with me:</p>
-                <a href="https://github.com/dhamejanishivam" target="_blank">GitHub</a> |
-                <a href="https://www.linkedin.com/in/shivam-dhamejani-66b461245/" target="_blank">LinkedIn</a> |
-                <a href="mailto:dhamejanishivam@gmail.com" target="_blank">Email Me</a>
+            <a href="https://github.com/dhamejanishivam" target="_blank">GitHub</a> |
+            <a href="https://www.linkedin.com/in/shivam-dhamejani-66b461245/" target="_blank">LinkedIn</a> |
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dhamejanishivam@gmail.com&su=Resume Website&body=Hey, I just saw your resume website and I wanted to say hi, &cc=shivam9644971120@gmail.com"
+                target="_blank">Email Me</a>
         </div>
     </footer>
-    
+
 
 
     <script src="js/index.js"></script>
 
 </body>
+
 </html>

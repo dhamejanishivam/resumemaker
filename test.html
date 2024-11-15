@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autocomplete with Awesomplete</title>
+  <!-- Awesomplete CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css">
+  <style>
+    /* Additional custom styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f3f4f6;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #6366f1;
+    }
+    .awesomplete > ul {
+  background-color: red;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.awesomplete > ul > li {
+  padding: 8px 12px;
+}
+
+.awesomplete > ul > li:hover {
+  background-color: #ddd;
+}
+
+.awesomplete > ul > li[aria-selected="true"] {
+  background-color: #007bff;
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <label for="fruit">Choose a fruit:</label>
+    <input id="fruit" type="text" placeholder="Start typing a fruit...">
+  </div>
+
+  <!-- Awesomplete JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
+  <script>
+    // Initialize Awesomplete with a predefined list of suggestions
+    new Awesomplete(document.getElementById("fruit"), {
+      list: ["Apple", "Banana", "Cherry", "Date", "Grape", "Mango", "Orange", "Pineapple", "Strawberry"],
+      minChars: 1  // Show suggestions after typing 1 character
+    });
+  </script>
+
+</body>
+</html>

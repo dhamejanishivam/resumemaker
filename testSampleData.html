@@ -12,10 +12,10 @@
     <div id="responseMessage"></div>
 
     <script>
-      const backendUrl = "http://127.0.0.1:5000//api/resume";
+      let backendUrl = "https://6ef5-45-124-144-227.ngrok-free.app/api/resume";
       
-        const data23 = {
-            name: "error is me",
+        let data23 = {
+            name: "ass",
             email: "dhamejanishivam@gmail.com",
             phone: "+91 9644971120",
             location: "Raipur",
@@ -80,36 +80,40 @@
         
 
         async function submitResume(data) {
-          try {
-  const response = await fetch(backendUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+    try {
+        const response = await fetch(backendUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
 
-  if (response.ok) {
-    // Handle successful response and trigger the file download
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "resume.pdf";  // You can set the filename as needed
-    a.click();
+        if (response.ok) {
+            // Handle successful response and trigger the file download
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
 
-    // Clean up the URL object after the download
-    window.URL.revokeObjectURL(url);
-    alert("Resume generated and downloading...");
-  } else {
-    const errorText = await response.text();
-    console.error("Error response text:", errorText);
-    alert("Failed to generate resume. Server responded with an error.");
-  }
-} catch (error) {
-  console.error("Error:", error);
-  alert("An error occurred while generating the resume!");
+            // Create an anchor element to trigger the download
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "resume.pdf";  // Filename for the download
+
+            // Trigger the download by clicking the anchor tag
+            a.click();
+
+            // Clean up the URL object after the download
+            window.URL.revokeObjectURL(url);
+            alert("Resume is being downloaded...");
+        } else {
+            const errorText = await response.text();
+            console.error("Error response text:", errorText);
+            alert("Failed to generate resume.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while generating the resume!");
+    }
 }
 
-        }
 
         // Event listener for the button
         document.getElementById('submitButton').addEventListener('click', () => {

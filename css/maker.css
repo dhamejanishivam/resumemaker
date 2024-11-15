@@ -1,206 +1,295 @@
 :root {
-    --poppins: "Poppins", sans-serif;
-    --primary-bg: #f0f4f8;
-    --header-bg: #ffffff;
-    --primary-color: #2f9ce3;
-    --accent-color: #4a4af5;
-    --button-hover: rgba(74, 74, 245, 0.8);
-    --border-radius: 10px;
-    --footerbg:linear-gradient(135deg, #6dd5ed, #2193b0);
+  --poppins: "Poppins", sans-serif;
+  --primary-bg: #f0f4f8;
+  --header-bg: #ffffff;
+  --primary-color: #2f9ce3;
+  --accent-color: #4a4af5;
+  --button-hover: rgba(74, 74, 245, 0.8);
+  --border-radius: 10px;
+  --footerbg: linear-gradient(135deg, #6dd5ed, #2193b0);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--primary-bg);
-    font-family: var(--poppins);
-    min-height: 120vh;
+  background-color: var(--primary-bg);
+  font-family: var(--poppins);
+  min-height: 120vh;
 }
 
 header .header {
-    text-align: center;
-    background-color: var(--primary-color);
-    padding: 20px;
-    color: var(--primary-bg);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: 20px;
+  color: var(--primary-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .header h1 {
-    font-weight: 600;
-    font-size: 2.5rem;
+  font-weight: 600;
+  font-size: 2.5rem;
 }
 
 .form-container {
-    width: 100%;
-    max-width: 70vw;
-    /* background-color: white; */
-    /* background-color: var(--accent-color); */
-    background-color: rgb(183, 211, 252);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    margin: auto;
-    margin-top: 100px;
+  width: 100%;
+  max-width: 70vw;
+  /* background-color: white; */
+  /* background-color: var(--accent-color); */
+  background-color: rgb(183, 211, 252);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  margin-top: 100px;
 }
 
 .form-header h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 1.8rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
 }
 
 .form-step-indicator {
-    text-align: center;
-    color: gray;
-    font-size: 0.9rem;
-    margin-top: 5px;
+  text-align: center;
+  color: gray;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
 .form-step {
-    display: none;
+  display: none;
 }
 
 .form-step.active {
-    display: block;
+  display: block;
 }
 
 .form-container label {
-    font-weight: 800;
-    margin-top: 15px;
-    display: block;
-    color: #333;
-    text-align: left;
+  font-weight: 800;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+  text-align: left;
 }
 
 .form-container input,
 .form-container textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
+  width: 100% !important;
+  padding: 10px;
+  margin-top: 8px;
 
-    color: rgb(88, 88, 88);
-    border:  2.5px solid #d1d9e6;
-    background-color: rgb(214, 229, 252);
-    font-size: 1rem;
-    font-weight: bold;
-    
-    border-radius: 5px;
-    border-radius: 15px;
-    caret-color: rgb(88, 88, 88); 
-    
+  color: rgb(88, 88, 88);
+  border: 2px solid #d1d9e6;
+  background-color: rgb(214, 229, 252);
+  font-size: 1rem;
+  font-weight: bold;
+
+  border-radius: 5px;
+  border-radius: 15px;
+  caret-color: rgb(88, 88, 88);
 }
 
-input:focus, textarea:focus{
-    caret-shape: underscore !important;
-    outline: none;
-    border: 2.5px solid #0642a1;
+input:focus,
+textarea:focus {
+  caret-shape: underscore !important;
+  outline: none;
+  border: 2.5px solid var(--primary-color);
 }
-
 
 .form-container textarea {
-    resize: vertical;
-    min-height: 80px;
+  resize: vertical;
+  min-height: 80px;
 }
 
 .form-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .form-navigation button {
-    padding: 10px 20px;
-    margin: auto;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 10px 20px;
+  margin: auto;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#resumeForm{
-    /* background-color: red; */
-    width: 50%;
+#resumeForm {
+  /* background-color: red; */
+  width: 50%;
 }
 
 .form-navigation button:hover {
-    background-color: var(--button-hover);
+  background-color: var(--button-hover);
 }
 
-
-
 #prevBtn {
-    background-color: #aaa;
+  background-color: #aaa;
 }
 
 #prevBtn:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
-
-#formimg{
-    width: 300px;
-    height: 300px;
-    /* height: auto; */
-    mix-blend-mode: color-burn;
+#formimg {
+  width: 300px;
+  height: 300px;
+  /* height: auto; */
+  mix-blend-mode: color-burn;
 }
 
-.mainbox{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.mainbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-
-.footer h3{
-    text-align: center;
-    padding: 5px 0px;
-    color: white;
+.footer h3 {
+  text-align: center;
+  padding: 5px 0px;
+  color: white;
 }
 
-.footer{
-    /* background-color: var(--footerbg); */
-    background: var(--footerbg);
-    color: white;
-    margin-top: 50px;
-    text-align: center;
-    padding: 10px ;
+.footer {
+  /* background-color: var(--footerbg); */
+  background: var(--footerbg);
+  color: white;
+  margin-top: 50px;
+  text-align: center;
+  padding: 10px;
 }
 
-.footer a{
-    padding: 0;
-    color: var(--accent-color);
+.footer a {
+  padding: 0;
+  color: var(--accent-color);
 }
-
-
 
 .add-degree-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 15px;
 }
 
 .add-degree-btn:hover {
-    background-color: var(--button-hover);
+  background-color: var(--button-hover);
 }
 
 .education-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .education-item {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* awesomplete is default lib for auto complete */
+/* Awesomplete Customized Styling */
+.awesomplete > ul {
+  background-color: var(--accent-color); /* Light background for a clean look */
+  border: 1px solid #ddd; /* Subtle border for the dropdown */
+  /* font-size: 14px; */
+  font-family: var(--poppins), sans-serif; /* Using your theme's font */
+  border-radius: 15px; /* Rounded corners for a soft appearance */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.awesomplete > ul > li {
+  padding: 10px 15px;
+  color: #333; /* Dark text color for better readability */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.awesomplete > ul > li:hover {
+  background-color: #f0f4f8; /* Soft highlight color on hover */
+  cursor: pointer;
+}
+
+.awesomplete > ul > li[aria-selected="true"] {
+  background-color: var(--primary-color); /* Primary color for selected item */
+  color: white; /* White text for selected item */
+}
+
+.awesomplete > input {
+  border-radius: 15px;
+  border: 2px solid #d1d9e6;
+  padding: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.awesomplete > input:focus {
+  border-color: var(--primary-color); /* Focus border in the primary color */
+}
+
+.awesomplete {
+  width: 100%;
+}
+mark {
+  background-color: lightblue !important;
+}
+
+
+
+
+
+
+.alert-box {
+  font-family: 'Poppins', sans-serif; /* Clean and professional font */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: linear-gradient(135deg, #ffffff, #f8f9fa); Subtle premium gradient */
+  background: linear-gradient(135deg, #ffffff, #add2f8); /* Subtle premium gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Minimal shadow for depth */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 25px; /* Balanced padding for breathing room */
+  border-radius: 12px; /* Slightly rounded corners for modern feel */
+  text-align: center; /* Center text for uniformity */
+  max-width: 400px; /* Restrict width for focus */
+  width: 90%; /* Responsive on smaller screens */
+  display: none;
+}
+
+.alert-text {
+  font-size: 1.2rem;
+  font-weight: 500; /* Medium weight for clear readability */
+  color: #333; /* Neutral and professional color */
+  margin-bottom: 15px; /* Spacing for separation from the button */
+}
+
+.alert-button {
+  cursor: pointer;
+  padding: 10px 20px;
+  width: fit-content;
+  background: #007bff; /* Modern blue for a professional look */
+  color: #fff; /* Contrast for text visibility */
+  border: none;
+  border-radius: 12px; /* Subtle rounding */
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase; /* Adds emphasis */
+  transition: background 0.3s ease; /* Smooth hover effect */
+}
+
+.alert-button:hover {
+  background: #0056b3; /* Darker blue for hover state */
 }

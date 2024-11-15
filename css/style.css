@@ -190,8 +190,14 @@ header .header {
     transform: scale(1.05);
 }
 
+.main2 #moreTemplates{
+    font-style: italic;
+    color: gray;
+}
+
 .submitbtn button {
     padding: 12px 25px;
+    margin-top: 20px;
     background-color: var(--accent-color);
     color: white;
     border: none;

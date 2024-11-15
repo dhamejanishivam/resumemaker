@@ -17,7 +17,7 @@ function selectTemplate(templateId) {
 
 function nextPage() {
     if (selectedTemplate) {
-        window.location.href = "maker.html";
+        window.location.href = "maker/";
     } else {
         alert("Please select a template to proceed.");
     }
