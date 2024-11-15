@@ -131,15 +131,18 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
   
       // Clean up the URL object after the download
       window.URL.revokeObjectURL(url);
-      alert("Resume generated and downloading...");
+      // alert("Resume generated and downloading...");
+      alertMessageShow("Resume generated and downloading...");
     } else {
       const errorText = await response.text();
       console.error("Error response text:", errorText);
-      alert("Failed to generate resume. Server responded with an error.");
+      // alert("Failed to generate resume. Server responded with an error.");
+      alertMessageShow("Failed to generate resume. Server responded with an error.");
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("An error occurred while generating the resume!");
+    // alert("An error occurred while generating the resume!");
+    alertMessageShow("An error occurred while generating the resume!");
   }
   
   
