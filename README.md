@@ -25,7 +25,4 @@ This project is a user-friendly resume builder tool designed to help users craft
 ### Backend (Hosted Separately):
 - The logic for processing and generating resumes is handled in the backend. This repository only contains the frontend code and resources.
 
----
-
-## 📂 Project Structure
-
+--------
