@@ -362,7 +362,7 @@ const data23 = {
 function alertMessageShow(text){
   
   let alertText = document.getElementById("alert-text")
-  alertText.value = text;
+  alertText.innerHTML = text;
   
   let alertBox = document.getElementById("alert-box");
   alertBox.style.display = "flex";
