@@ -1,6 +1,6 @@
 // let backendUrl = "https://3a8a1ed3-4573-4f0a-8019-45d567abea8b-00-xpzkyrngg4dp.pike.replit.dev/api/resume";
 // let backendUrl = "http://127.0.0.1:5000/api/resume";
-let backendUrl = "https://6ef5-45-124-144-227.ngrok-free.app/api/resume";
+let backendUrl = "https://3d5c-45-124-144-227.ngrok-free.app/api/resume";
 
 
 
