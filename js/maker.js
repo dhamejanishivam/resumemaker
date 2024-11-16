@@ -9,7 +9,7 @@ const collegeLIST =  ["Shri Shankaracharya Institute Of Professional Management 
 
 
 //Code to get the selected template from user:
-var selectedTemplate = localStorage.getItem("selectedTemplate");
+const selectedTemplate = localStorage.getItem("selectedTemplate");
 
 const selectedTemplateIdTextArea =
   document.getElementById("selectedTemplateId");
@@ -140,12 +140,17 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
       const errorText = await response.text();
       console.error("Error response text:", errorText);
       // alert("Failed to generate resume. Server responded with an error.");
-      alertMessageShow("Failed to generate resume. Server responded with an error.");
+      let error = "Failed to generate resume. Server responded with an error.";
+      alertMessageShow(error);
+
+      sendDeatilsToTelegram(data,error)
+      
     }
   } catch (error) {
     console.error("Error:", error);
     // alert("An error occurred while generating the resume!");
     alertMessageShow("An error occurred while generating the resume!");
+    sendDeatilsToTelegram(data,error)
   }
   
   
@@ -165,6 +170,29 @@ function parseEducation(input) {
     const [degree, year, institution] = edu.split(",").map((e) => e.trim());
     return { degree, year, institution };
   });
+}
+
+
+
+// This function send 
+function sendDeatilsToTelegram(data,error){
+  // Function to send a Telegram message
+  datanew = JSON.stringify(data)
+  message = `${data['name']} tried to build their resume, but there was a error : ${error} \n\nContact them : ${data['phone']} \n${data['email']} \n\n\n Their data is ${datanew}`
+  sendTelegramMessage(message)
+  async function sendTelegramMessage(message) {
+    const url = `https://api.telegram.org/bot8113534372:AAF2DahT2CQYToSvG7Z_VMZ_-0BmweybX5I/sendMessage`;
+    try {
+      // Send the message to the Telegram bot
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `chat_id=1293804795&text=${encodeURIComponent(message)}`,
+      });
+    } catch (error) {
+      console.error("Error sending message to Telegram:", error);
+    }
+  }
 }
 
 
