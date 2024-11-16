@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .bar {
+            width: 60%;
+            height: 20px;
+            border-radius: 20px;
+            border: 1px solid blue;
+            overflow: hidden; /* Prevent overflowing */
+            position: relative;
+        }
+
+        #filled {
+            width: 10%; /* Initial width */
+            height: 100%;
+            border-radius: 20px;
+            background-color: red;
+            transition: all 1s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: reactiveEffect 2s infinite alternate; /* Boiling effect */
+        }
+
+        /* Boiling or reactive animation effect */
+        @keyframes reactiveEffect {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+                transform: scaleY(1) rotate(0deg);
+            }
+            25% {
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
+                transform: scaleY(1.1) rotate(0.5deg);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6);
+                transform: scaleY(1.2) rotate(-0.5deg);
+            }
+            75% {
+                box-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.6);
+                transform: scaleY(1.1) rotate(0.5deg);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.6);
+                transform: scaleY(1) rotate(0deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bar" id="bar">
+        <div class="filled" id="filled"></div>
+    </div>
+
+    <button onclick="fill()">Add</button>
+
+    <script>
+        let filled = document.getElementById("filled");
+        let bar = document.getElementById("bar");
+
+        function fill() {
+            let currentWidth = parseInt(window.getComputedStyle(filled).width);
+            let totalWidth = parseInt(window.getComputedStyle(bar).width);
+
+            let newWidth = (currentWidth / totalWidth) * 100 + 20;
+
+            if (newWidth > 100) newWidth = 100; // Prevent going over 100%
+
+            filled.style.width = `${newWidth}%`;
+        }
+    </script>
+
+</body>
+</html>
