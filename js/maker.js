@@ -68,13 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Pressing submit button
 document.getElementById("resumeForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-//   window.location.href=backendUrl;
 
-  // Fetch values from input fields
-  // const degreeName = document.getElementById("degree-name").value;
-  // const startYear = document.getElementById("start-year").value;
-  // const endYear = document.getElementById("end-year").value;
-  // const instituteName = document.getElementById("institute-name").value;
   const startDate = document.getElementById("start-date").value;
   const endDate = document.getElementById("end-date").value;
 
@@ -82,24 +76,14 @@ document.getElementById("resumeForm").addEventListener("submit", async (e) => {
     // Basic Information
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
-    // email: "a@a.com",
     phone: document.getElementById("phone").value,
     location: document.getElementById("location").value,
     objective: document.getElementById("objective").value,
 
     // Work Experience
-    work_experience: [
-      {
-        title: document.getElementById("job-title").value,
-        company: document.getElementById("company-name").value,
-        duration: `${startDate} - ${endDate}`,
-        description: document.getElementById("job-description").value,
-      },
-    ],
+    work_experience: getWorkExperienceDetails(),
 
     // Education
-    // let eduArray = document.querySelectorAll(".form-group education-item");
-    // for
     education: getEducationData(),
 
     // Projects
@@ -253,6 +237,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  showStep(currentStep);
+
+  let a = document.getElementById("addworkBtn");
+
+  a.addEventListener('click',function() {
+      const workContainer = document.querySelector("#step3")
+
+
+      // workContainer.children[1].appendChild(newLine)
+      let newWorkContainer = workContainer.children[1].cloneNode(true);
+      const inputs = newWorkContainer.querySelectorAll("input")
+      const textarea = newWorkContainer.querySelectorAll("textarea")
+      inputs.forEach(input => input.value = '');
+      textarea.forEach(input => input.value = '');
+
+      workContainer.appendChild(newWorkContainer)
+
+      newWorkContainer.style.marginTop = '35px';
+  })
+
+
+})
+
+
+
+
+
+
+
+
 
 function getEducationData() {
   const educationContainers = document.querySelectorAll(".education-container");
@@ -271,8 +287,34 @@ function getEducationData() {
     });
   });
 
-  console.log(educationData);
+  // console.log(educationData);
   return educationData;
+}
+
+
+
+function getWorkExperienceDetails(){
+  let workContainers = document.querySelectorAll(".work-container")
+  let workData = [];
+
+  workContainers.forEach(container => {
+    let jobTitle = container.querySelector('.job-title').value
+    let compnayName = container.querySelector('.company-name').value
+    let startDate = container.querySelector('.start-date').value
+    let endDate = document.querySelector('.end-date').value
+    let jobDescription = document.querySelector(".job-description").value
+
+    workData.push({
+      title: jobTitle,
+      company: compnayName,
+      duration: `${startDate}-${endDate}`,
+      description: jobDescription
+    });
+  })
+
+  // console.log(workData);
+  return workData;
+
 }
 
 
@@ -332,79 +374,6 @@ new Awesomplete(document.getElementById("location"), {
   minChars: 1  // Show suggestions after typing 1 character
 });
 
-
-
-
-
-
-
-
-
-
-
-
-const data23 = {
-  name: "NooName",
-  email: "dhamejanishivam@gmail.com",
-  phone: "+91 9644971120",
-  location: "Raipur",
-  objective:
-    "I want to be billioniare " +
-    "Seeking opportunities to apply my expertise in building innovative solutions while continuously " +
-    "learning and contributing to dynamic projects.",
-  work_experience: [
-    {
-      title: "God • Internship",
-      company: "Thought Applied Creation, Raipur",
-      duration: "Jul 2024 - Aug 2024",
-      description:
-        "Built a ABC website linked to a database using React, HTML, CSS, JavaScript, PHP, " +
-        "and MySQL.",
-    },
-  ],
-  education: [
-    {
-      degree: "B1111111.Tech, Compu11ter Science & Engineering",
-      year: "2022 - 20261111",
-      institution:
-        "Shri Shankaracharya Institute Of Professional Management And Technology",
-    },
-    {
-      degree: "Senior Secondary (XII), CBSE",
-      year: "2022",
-      institution: "Krishna Public School",
-    },
-    {
-      degree: "Secondary (X), CBSE",
-      year: "2020",
-      institution: "Krishna Public School",
-    },
-  ],
-  projects: [
-    "https://shivamdhamejani.in",
-    "https://github.com/dhamejanishivam",
-    "https://github.com/dhamejanishivam/Heart-Disease-Predictor",
-    "https://github.com/dhamejanishivam/pendrive-virus",
-  ],
-  skills: [
-    "JavaScript",
-    "Python",
-    "Photography",
-    "HTML&CSS",
-    "C Programming",
-    "C++ Programming",
-    "Linux",
-    "MS-Excel",
-    "Digital Marketing",
-    "SQL",
-    "Data Structures",
-  ],
-  additional_details: [
-    "Green Olympiad",
-    "2nd position in Spell Bee Competition",
-    "1st position in Best Out of Waste competition",
-  ],
-};
 
 
 

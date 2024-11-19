@@ -181,9 +181,12 @@ textarea:focus {
   color: var(--accent-color);
 }
 
-.add-degree-btn {
-  background-color: var(--primary-color);
-  color: white;
+
+
+
+.add-degree-btn, .add-work-btn {
+  background: linear-gradient(135deg, #3fd3f8, var(--primary-color));
+  color: rgb(255, 255, 255);
   border: none;
   padding: 10px 15px;
   margin-top: 15px;
@@ -192,9 +195,34 @@ textarea:focus {
   border-radius: 15px;
 }
 
-.add-degree-btn:hover {
-  background-color: var(--button-hover);
+.add-degree-btn:hover, .add-work-btn:hover {
+  animation: addbuttonAni 1s ease-in-out;
 }
+@keyframes addbuttonAni{
+  from{
+    background:#3fd3f8;
+    
+  }
+  to{
+    background:var(--primary-color);
+  }
+}
+
+
+
+#step3Line{
+  background: linear-gradient(135deg, #3fd3f8, var(--primary-color));
+  color: var(--primary-color);
+  width: 99%;
+  margin: auto;
+  height: 3px;
+  border-radius: 20px;
+  border: none;
+}
+
+
+
+
 
 .education-container {
   display: flex;
@@ -355,18 +383,22 @@ mark {
   }
   25% {
       box-shadow: 0 0 15px rgba(0, 0, 255, 0.8), 0 0 30px rgba(0, 0, 255, 0.6);
-      transform: scaleY(1.1) rotate(1deg);
+      transform: scaleY(1.1) rotate(0.2deg);
   }
   50% {
       box-shadow: 0 0 20px rgba(0, 0, 255, 0.8), 0 0 40px rgba(0, 0, 255, 0.6);
-      transform: scaleY(1.2) rotate(-1deg);
+      transform: scaleY(1.1) rotate(0.2deg);
+      transform: scaleX(1.01);
   }
   75% {
+    /* background-color: red; */
       box-shadow: 0 0 25px rgba(0, 0, 255, 0.8), 0 0 50px rgba(0, 0, 255, 0.6);
-      transform: scaleY(1.1) rotate(1deg);
-  }
-  100% {
+      transform: scaleY(2) rotate(0deg);
+      transform: scaleX(1.02) rotate(0deg);
+    }
+    100% {
       box-shadow: 0 0 30px rgba(0, 0, 255, 0.8), 0 0 60px rgba(0, 0, 255, 0.6);
       transform: scaleY(1) rotate(0deg);
+      transform: scaleX(1.027) rotate(0deg);
   }
 }

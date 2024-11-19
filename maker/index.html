@@ -86,37 +86,45 @@
                     <button type="button" id="addDegreeBtn" class="add-degree-btn">+ Add Another Degree</button>
                     
                 </div>
-
                 
-
+                
+                
                 <!-- Step 3: Work Experience -->
                 <div class="form-step" id="step3">
                     <label for="job-title">Work/Internship Experience</label>
                     
-                    <div class="form-group">
-                        <label for="job-title">Internship Title</label>
-                        <input type="text" id="job-title" placeholder="e.g., Web Developer">
+                    <div class="work-container">                        
+                        <div class="form-group">
+                            <label for="job-title">Internship Title</label>
+                            <input type="text" id="job-title" class="job-title" placeholder="e.g., Web Developer">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company-name">Company/Instituion</label>
+                            <input type="text" id="company-name" class="company-name" placeholder="e.g., Google Summer Internships">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="start-date">Start Date</label>
+                            <input type="text" id="start-date" class="start-date" placeholder="e.g., Jul 2024">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="end-date">End Date</label>
+                            <input type="text" id="end-date" class="end-date" placeholder="e.g., Aug 2024 or 'Present' if currently employed">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="job-description">Description</label>
+                            <textarea id="job-description" class="job-description" placeholder="e.g., Managed user's database"></textarea>
+                        </div>
+                        <hr id="step3Line">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="company-name">Company/Instituion</label>
-                        <input type="text" id="company-name" placeholder="e.g., Google Summer Internships">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="start-date">Start Date</label>
-                        <input type="text" id="start-date" placeholder="e.g., Jul 2024">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="end-date">End Date</label>
-                        <input type="text" id="end-date" placeholder="e.g., Aug 2024 or 'Present' if currently employed">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="job-description">Description</label>
-                        <textarea id="job-description" placeholder="e.g., Managed user's database"></textarea>
-                    </div>
+
+
+
+                    <button type="button" id="addworkBtn" class="add-work-btn">+ Add more work experience</button>
+
                 </div>
                 
 
