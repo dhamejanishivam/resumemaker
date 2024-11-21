@@ -82,6 +82,7 @@
                             <label for="institute-name">Name of Institution, Location</label>
                             <input type="text" class="institute-name coolegeNameInput" id="nameofInstitution" placeholder="e.g., Shri Shankaracharya Institute Of Professional Management And Technology">
                         </div>
+                        <hr class="addBtnLine">
                     </div>
                     <button type="button" id="addDegreeBtn" class="add-degree-btn">+ Add Another Degree</button>
                     
@@ -118,7 +119,7 @@
                             <label for="job-description">Description</label>
                             <textarea id="job-description" class="job-description" placeholder="e.g., Managed user's database"></textarea>
                         </div>
-                        <hr id="step3Line">
+                        <hr id="step3Line" class="addBtnLine">
                     </div>
 
 
@@ -130,14 +131,31 @@
 
                 <!-- Step 4: Projects and Skills -->
                 <div class="form-step" id="step4">
-                    <label for="projects">Projects</label>
+                    <label for="skills">Skills (Enter skills separated by commas)</label>
+                    <input id="skills" placeholder="Python, Java, C++, HTML, Javascript, PHP"></input>
+                    <div class="projectSection">
+                        <div>
+                            <label for="projects">Project Name</label>
+                            <input type="text" class="projectname" id="projectname"></input>
+                            <label for="projects">Project Link (if any)</label>
+                            <input type="text" class="projecturl" id="projecturl"></input>
+                            <label for="projects">Project Description</label>
+                            <textarea type="text" class="projectdesc" id="projectdesc"></textarea>
+                            <hr  class="addBtnLine">
+                        </div>
+                        
+                        <button type="button" id="addprojectBtn" class="add-work-btn">+ Add more projects</button>
+                    </div>
+                    
+
+                    <!-- <label for="projects">Projects</label>
                     <input type="text" id="projects"></input>
 
                     <label for="projects">Web Projects / Project Urls (Enter URLs separated by commas)</label>
                     <input type="text" id="projectsurl"></input>
 
                     <label for="skills">Skills (Enter skills separated by commas)</label>
-                    <textarea id="skills"></textarea>
+                    <textarea id="skills"></textarea> -->
                 </div>
 
                 <!-- Step 5: Additional Details -->
@@ -145,8 +163,8 @@
                     <label for="objective">Objective</label>
                     <textarea id="objective" name="objective"></textarea>
 
-                    <label for="additionalDetails">Additional Details (Enter achievements separated by commas)</label>
-                    <textarea id="additionalDetails"></textarea>
+                    <label for="additionalDetails">Achievements/Certificates</label>
+                    <textarea id="additionalDetails" placeholder="1st prize in arm Wrestling, 2nd prize in Debate"></textarea>
                 </div>
                 
                 <div class="form-navigation">

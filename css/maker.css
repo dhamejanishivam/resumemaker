@@ -113,6 +113,10 @@ textarea:focus {
   min-height: 80px;
 }
 
+
+
+
+
 .form-navigation {
   display: flex;
   justify-content: space-between;
@@ -210,7 +214,7 @@ textarea:focus {
 
 
 
-#step3Line{
+.addBtnLine{
   background: linear-gradient(135deg, #3fd3f8, var(--primary-color));
   color: var(--primary-color);
   width: 99%;
